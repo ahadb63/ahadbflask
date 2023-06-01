@@ -1,15 +1,64 @@
-<!-- Extending the project layout, as this file will do minor customizations -->
 {% extends "layouts/project.html" %}
 
-<!-- Setting up variables to customize "project" details to be specific to hawkers -->
-{% set project = "Hawkers" %}
-{% set overview = "https://hawkers.nighthawkcodingsociety.com/aboutus" %}
-{% set scrumboard = "https://github.com/noyah81/p2ducks/projects/1" %}
-{% set repo = "https://github.com/noyah81/p2ducks" %}
-{% set authors = "https://nighthawkcodingsociety.com/projectsearch/details/Hawkers%20Tweet" %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Counter</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Button Counter</h1>
+  <button id="counter-btn">Click Me!</button>
+  <p id="counter-text">0</p>
 
-<!-- Setting up a block replacement to customize background to BIRDS -->
-{% block background %}
+  <script src="script.js"></script>
+</body>
+<style>
+    body {
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+
+p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+</style>
+<script>
+// Get the button element
+var button = document.getElementById("counter-btn");
+
+// Get the counter text element
+var counterText = document.getElementById("counter-text");
+
+// Set initial counter value
+var count = 0;
+
+// Add event listener to the button
+button.addEventListener("click", function() {
+  // Increment the counter
+  count++;
+
+  // Update the counter text
+  counterText.textContent = count;
+});
+
+</script>
+</html>
+
+
+  <!-- Setting up a block replacement to customize background to BIRDS -->
+  {% block background %}
     <script src="{{ url_for('static', filename='js/three.r119.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/vanta.net.min.js') }}"></script>
     <script>
@@ -24,4 +73,5 @@
             scaleMobile: 1.00
         })
     </script>
-{% endblock %}
+  {% endblock %}
+
